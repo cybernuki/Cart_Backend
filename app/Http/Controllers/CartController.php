@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return $response(Cart::all(), 200);
+        return response(Cart::all(), 200);
     }
 
     /**

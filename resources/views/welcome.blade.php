@@ -86,9 +86,9 @@
 
                 <div class="links">
                     <a href="#">README</a>
-                    <a href="{{env('app_url')}}/api/products" target="_blank">Products</a>
-                    <a href="{{env('app_url')}}/api/product_cars" target="_blank">Product Cars</a>
-                    <a href="{{env('app_url')}}/api/carts" target="_blank">Carts</a>
+                    <a href="{{env('app_url')}}:8000/api/products" target="_blank">Products</a>
+                    <a href="{{env('app_url')}}:8000/api/product_cars" target="_blank">Product Cars</a>
+                    <a href="{{env('app_url')}}:8000/api/carts" target="_blank">Carts</a>
                     <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en" target="_blank">JSON Formatter</a>
 
                 </div>

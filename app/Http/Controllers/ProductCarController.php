@@ -14,7 +14,7 @@ class ProductCarController extends Controller
      */
     public function index()
     {
-        return $request(ProductCar::all(), 200);
+        return response(ProductCar::all(), 200);
     }
 
     /**
