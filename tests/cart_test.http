@@ -1,0 +1,20 @@
+### ALL AUTHORS
+GET  http://localhost:8000/api/carts/
+
+### SINGLE AUTHOR
+GET  http://localhost:8000/api/carts/2
+
+### POST REQUEST TO AUTHORS
+POST http://localhost:8000/api/carts/
+Content-Type: application/json
+
+### PUT REQUEST TO AUTHORS
+POST http://localhost:8000/api/carts/2?_method=PUT
+Content-Type: application/json
+
+{
+    "status":"completed"
+}
+
+### DELETE REQUEST TO AUTHORS
+DELETE http://localhost:8000/api/carts/3

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response(Product::all(), 200);
+        return response(ProductResource::collection(Product::all(), 200));
     }
 
     /**
@@ -25,12 +27,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $validate = Validator::make($request->toArray(),[
             'name' => 'required',
             'sku' => 'required',
             'description' => 'required'
         ]);
-        return response(Product::create($data),200);
+        return response(new ProductResource(Product::create($validate->validate())),200);
     }
 
     /**
@@ -41,7 +43,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return response($product, 200);
+        return response(new ProductResource($product), 200);
     }
 
     /**
@@ -53,12 +55,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $data = $request->validate([
+        $validate = Validator::make($request->toArray(),[
             'name' => 'required',
-            'sku' => 'required',
             'description' => 'required'
         ]);
-        return response($product->update($data),200);
+        $product->update($validate->validate());
+        return response(new ProductResource($product),200);
     }
 
     /**
@@ -70,7 +72,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         foreach($product->product_cars as $productCar) {
-            $productCar->$delete();
+            $productCar->delete();
         }
         $product->delete();
         return response(null, 204);

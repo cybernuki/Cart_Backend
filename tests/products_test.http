@@ -1,0 +1,27 @@
+### ALL AUTHORS
+GET  http://localhost:8000/api/products/
+
+### SINGLE AUTHOR
+GET  http://localhost:8000/api/products/1
+
+### POST REQUEST TO AUTHORS
+POST http://localhost:8000/api/products/
+Content-Type: application/json
+
+{
+    "name": "Bottle of water",
+    "description": "It's just a bottle of water",
+    "sku":"123"
+}
+
+### PUT REQUEST TO AUTHORS
+POST http://localhost:8000/api/products/1?_method=PUT
+Content-Type: application/json
+
+{
+    "name": "Pepsi drink",
+    "description": "it's just a bottle of pepsi"
+}
+
+### DELETE REQUEST TO AUTHORS
+DELETE http://localhost:8000/api/products/1

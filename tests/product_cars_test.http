@@ -1,0 +1,26 @@
+### ALL AUTHORS
+GET  http://localhost:8000/api/product_cars/
+
+### SINGLE AUTHOR
+GET  http://localhost:8000/api/product_cars/5
+
+### POST REQUEST TO AUTHORS
+POST http://localhost:8000/api/product_cars/
+Content-Type: application/json
+
+{
+    "quantity": 20,
+    "product_id": 2,
+    "cart_id": 4
+}
+
+### PUT REQUEST TO AUTHORS
+POST http://localhost:8000/api/product_cars/5?_method=PUT
+Content-Type: application/json
+
+{
+    "quantity":22
+}
+
+### DELETE REQUEST TO AUTHORS
+DELETE http://localhost:8000/api/product_cars/5

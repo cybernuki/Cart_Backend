@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Http\Resources\CartResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class CartController extends Controller
 {   
@@ -14,7 +17,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return response(Cart::all(), 200);
+
+        return response(CartResource::collection(Cart::all(), 200));
     }
 
     /**
@@ -25,10 +29,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'status' => 'required'
-        ]);
-        return response(Cart::create($data),201);
+        return response(new CartResource(Cart::create()),201);
     }
 
     /**
@@ -39,7 +40,7 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        return response($cart, 200);
+        return response(new CartResource($cart), 200);
     }
 
     /**
@@ -51,10 +52,11 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        $data = $request->validate([
+        $validate = Validator::make($request->toArray(),[
             'status' => 'required'
         ]);
-        return response($cart->update($data),200);
+        $cart->update($validate->validate());
+        return response(new CartResource($cart),200);
     }
 
     /**
@@ -66,7 +68,7 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         foreach($cart->product_cars as $productCar) {
-            $productCar->$delete();
+            $productCar->delete();
         }
         $cart->delete();
         return response(null, 204);

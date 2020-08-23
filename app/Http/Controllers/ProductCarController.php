@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\ProductCar;
+use App\Http\Resources\ProductCarResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductCarController extends Controller
 {
@@ -14,7 +16,7 @@ class ProductCarController extends Controller
      */
     public function index()
     {
-        return response(ProductCar::all(), 200);
+        return response(ProductCarResource::collection(ProductCar::all(), 200));
     }
 
     /**
@@ -25,12 +27,12 @@ class ProductCarController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $validate = Validator::make($request->toArray(),[
             'product_id' => 'required',
             'cart_id' => 'required',
             'quantity' => 'required',
         ]);
-        return $response(ProductCar::create($data), 201);
+        return response(new ProductCarResource(ProductCar::create($validate->validate())), 201);
     }
 
     /**
@@ -41,7 +43,7 @@ class ProductCarController extends Controller
      */
     public function show(ProductCar $productCar)
     {
-        return $request($productCar, 200);
+        return response(new ProductCarResource($productCar), 200);
     }
 
     /**
@@ -53,10 +55,11 @@ class ProductCarController extends Controller
      */
     public function update(Request $request, ProductCar $productCar)
     {
-        $data = $request->validate([
+        $validate = Validator::make($request->toArray(),[
             'quantity' => 'required',
         ]);
-        return $response(ProductCar::update($data), 201);
+        $productCar->update($validate->validate());
+        return response(new ProductCarResource($productCar), 201);
     }
 
     /**
