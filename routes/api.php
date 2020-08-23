@@ -14,20 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('carts', 'CartController@store');
-Route::get('carts', 'CartController@index');
-Route::get('carts/{cart}', 'CartController@show');
-Route::put('carts/{cart}', 'CartController@update');
-Route::delete('carts/{cart}', 'CartController@destroy');
-
-Route::post('products', 'ProductController@store');
-Route::get('products', 'ProductController@index');
-Route::get('products/{product}', 'ProductController@show');
-Route::put('products/{product}', 'ProductController@update');
-Route::delete('products/{product}', 'ProductController@destroy');
-
-Route::post('product_cars', 'ProductCarController@store');
-Route::get('product_cars', 'ProductCarController@index');
-Route::get('product_cars/{productCar}', 'ProductCarController@show');
-Route::put('product_cars/{productCar}', 'ProductCarController@update');
-Route::delete('product_cars/{productCar}', 'ProductCarController@destroy');
+Route::apiResources([
+    'carts' => 'CartController',
+    'products' => 'ProductController',
+    'product_cars' => 'ProductCarController'
+    ]);

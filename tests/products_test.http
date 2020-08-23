@@ -2,7 +2,7 @@
 GET  http://localhost:8000/api/products/
 
 ### SINGLE AUTHOR
-GET  http://localhost:8000/api/products/1
+GET  http://localhost:8000/api/products/2
 
 ### POST REQUEST TO AUTHORS
 POST http://localhost:8000/api/products/
@@ -11,17 +11,17 @@ Content-Type: application/json
 {
     "name": "Bottle of water",
     "description": "It's just a bottle of water",
-    "sku":"123"
+    "sku":"1234"
 }
 
 ### PUT REQUEST TO AUTHORS
-POST http://localhost:8000/api/products/1?_method=PUT
+POST http://localhost:8000/api/products/2?_method=PUT
 Content-Type: application/json
 
 {
-    "name": "Pepsi drink",
-    "description": "it's just a bottle of pepsi"
+    "name": "Bottle of wter",
+    "description": "It's just a bottle of water"
 }
 
 ### DELETE REQUEST TO AUTHORS
-DELETE http://localhost:8000/api/products/1
+DELETE http://localhost:8000/api/products/2

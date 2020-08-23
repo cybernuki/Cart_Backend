@@ -15,8 +15,8 @@ class CreateProductCarsTable extends Migration
     {
         Schema::create('product_cars', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('product_id')->nullable(false)->unique();
-            $table->bigInteger('cart_id')->nullable(false)->unique();
+            $table->bigInteger('product_id')->nullable(false);
+            $table->bigInteger('cart_id')->nullable(false);
             $table->integer('quantity')->default(0);
             $table->timestamps();
         });

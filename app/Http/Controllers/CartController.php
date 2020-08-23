@@ -6,10 +6,10 @@ use App\Cart;
 use App\Http\Resources\CartResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Database\QueryException;
 
 class CartController extends Controller
-{   
+{
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +17,14 @@ class CartController extends Controller
      */
     public function index()
     {
-
-        return response(CartResource::collection(Cart::all(), 200));
+        try {
+            return response(CartResource::collection(Cart::all(), 200));
+        } catch (QueryException $exception) {
+            return response()->json([
+                'status_code' => 500,
+                'errors' => 'DataBase problem'
+            ], 500);
+        }
     }
 
     /**
@@ -29,7 +35,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        return response(new CartResource(Cart::create()),201);
+        try {
+            return response(new CartResource(Cart::create()), 201);
+        } catch (QueryException $exception) {
+            return response()->json([
+                'status_code' => 500,
+                'errors' => 'DataBase problem'
+            ], 500);
+        }
     }
 
     /**
@@ -40,7 +53,14 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        return response(new CartResource($cart), 200);
+        try {
+            return response(new CartResource($cart), 200);
+        } catch (QueryException $exception) {
+            return response()->json([
+                'status_code' => 500,
+                'errors' => 'DataBase problem'
+            ], 500);
+        }
     }
 
     /**
@@ -52,11 +72,24 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        $validate = Validator::make($request->toArray(),[
+        $validate = Validator::make($request->toArray(), [
             'status' => 'required'
         ]);
-        $cart->update($validate->validate());
-        return response(new CartResource($cart),200);
+        if ($validate->fails()) {
+            return response()->json([
+                'status_code' => 400,
+                'errors' => $validate->errors()
+            ], 400);
+        }
+        try {
+            $cart->update($validate->validate());
+            return response(new CartResource($cart), 200);
+        } catch (QueryException $exception) {
+            return response()->json([
+                'status_code' => 500,
+                'errors' => 'DataBase problem'
+            ], 500);
+        }
     }
 
     /**
@@ -67,10 +100,17 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        foreach($cart->product_cars as $productCar) {
-            $productCar->delete();
+        try {
+            foreach ($cart->product_cars as $productCar) {
+                $productCar->delete();
+            }
+            $cart->delete();
+            return response(null, 204);
+        } catch (QueryException $exception) {
+            return response()->json([
+                'status_code' => 500,
+                'errors' => 'DataBase problem'
+            ], 500);
         }
-        $cart->delete();
-        return response(null, 204);
     }
 }
