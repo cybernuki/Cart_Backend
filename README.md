@@ -32,6 +32,7 @@ name: string<br>
 sku: string<br>
 description: string<br>
 price: float<br>
+imageUrl: string<br>
 
 ## ProductCar:
 quantity: integer<br>
