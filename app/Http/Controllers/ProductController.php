@@ -38,7 +38,8 @@ class ProductController extends Controller
 		$validate = Validator::make($request->toArray(), [
 			'name' => 'required',
 			'sku' => 'required',
-			'description' => 'required'
+			'description' => 'required',
+			'price' => 'required'
 		]);
 		if ($validate->fails()) {
 			return response()->json([

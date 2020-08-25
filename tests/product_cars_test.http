@@ -1,11 +1,11 @@
 ### ALL AUTHORS
-GET  http://localhost:8000/api/product_cars/
+GET  http://localhost:3000/api/product_cars/
 
 ### SINGLE AUTHOR
-GET  http://localhost:8000/api/product_cars/5
+GET  http://localhost:3000/api/product_cars/5
 
 ### POST REQUEST TO AUTHORS
-POST http://localhost:8000/api/product_cars/
+POST http://localhost:3000/api/product_cars/
 Content-Type: application/json
 
 {
@@ -15,7 +15,7 @@ Content-Type: application/json
 }
 
 ### PUT REQUEST TO AUTHORS
-POST http://localhost:8000/api/product_cars/5?_method=PUT
+POST http://localhost:3000/api/product_cars/5?_method=PUT
 Content-Type: application/json
 
 {
@@ -23,4 +23,4 @@ Content-Type: application/json
 }
 
 ### DELETE REQUEST TO AUTHORS
-DELETE http://localhost:8000/api/product_cars/5
+DELETE http://localhost:3000/api/product_cars/5

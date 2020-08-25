@@ -10,9 +10,11 @@ class Product extends Model
     protected $fillable = [
         'name',
         'sku',
-        'description'
+        'description',
+        'price'
     ];
-    public function product_cars(){
+    public function product_cars()
+    {
         return $this->hasMany(ProductCar::class);
     }
 }

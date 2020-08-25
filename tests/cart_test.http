@@ -1,15 +1,15 @@
 ### ALL AUTHORS
-GET  http://localhost:8000/api/carts/
+GET  http://localhost:3000/api/carts/
 
 ### SINGLE AUTHOR
-GET  http://localhost:8000/api/carts/2
+GET  http://localhost:3000/api/carts/2
 
 ### POST REQUEST TO AUTHORS
-POST http://localhost:8000/api/carts/
+POST http://localhost:3000/api/carts/
 Content-Type: application/json
 
 ### PUT REQUEST TO AUTHORS
-POST http://localhost:8000/api/carts/2?_method=PUT
+POST http://localhost:3000/api/carts/2?_method=PUT
 Content-Type: application/json
 
 {
@@ -17,4 +17,4 @@ Content-Type: application/json
 }
 
 ### DELETE REQUEST TO AUTHORS
-DELETE http://localhost:8000/api/carts/3
+DELETE http://localhost:3000/api/carts/3

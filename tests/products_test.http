@@ -1,21 +1,22 @@
-### ALL AUTHORS
-GET  http://localhost:8000/api/products/
+### AL3 AUTHORS
+GET  http://localhost:3000/api/products/
 
 ### SINGLE AUTHOR
-GET  http://localhost:8000/api/products/2
+GET  http://localhost:3000/api/products/2
 
 ### POST REQUEST TO AUTHORS
-POST http://localhost:8000/api/products/
+POST http://localhost:3000/api/products/
 Content-Type: application/json
 
 {
     "name": "Bottle of water",
     "description": "It's just a bottle of water",
-    "sku":"1234"
+    "sku":"1234",
+    "price":100
 }
 
 ### PUT REQUEST TO AUTHORS
-POST http://localhost:8000/api/products/2?_method=PUT
+POST http://localhost:3000/api/products/2?_method=PUT
 Content-Type: application/json
 
 {
@@ -24,4 +25,4 @@ Content-Type: application/json
 }
 
 ### DELETE REQUEST TO AUTHORS
-DELETE http://localhost:8000/api/products/2
+DELETE http://localhost:3000/api/products/2

@@ -93,7 +93,11 @@ class ProductCarController extends Controller
             ], 400);
         }
         try {
-            $productCar->update($validate->validate());
+            if ($productCar->quantity == 0) {
+                $productCar->delete();
+            } else {
+                $productCar->update($validate->validate());
+            }
             return response(new ProductCarResource($productCar), 201);
         } catch (QueryException $exception) {
             return response()->json([
