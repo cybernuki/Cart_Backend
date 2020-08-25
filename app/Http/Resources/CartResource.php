@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\ProductCar;
+use App\Http\Resources\ProductCartResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CartResource extends JsonResource
@@ -16,7 +18,8 @@ class CartResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'status' => $this->status
+            'status' => $this->status,
+            'cartItems' => $this->product_cars
         ];
     }
 }

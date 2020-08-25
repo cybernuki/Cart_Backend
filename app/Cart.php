@@ -10,7 +10,8 @@ class Cart extends Model
     protected $fillable = [
         'status'
     ];
-    public function product_cars() {
+    public function product_cars()
+    {
         return $this->hasMany(ProductCar::class);
     }
 }
