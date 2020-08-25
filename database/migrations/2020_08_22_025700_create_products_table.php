@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('sku')->unique()->nullable(false);
             $table->longText('description');
             $table->float('price');
+            $table->string('imageUrl')->default('https://robertoespinosa.es/wp-content/uploads/2019/10/placeholder.png');
             $table->timestamps();
         });
     }

@@ -11,7 +11,8 @@ class Product extends Model
         'name',
         'sku',
         'description',
-        'price'
+        'price',
+        'imageUrl'
     ];
     public function product_cars()
     {

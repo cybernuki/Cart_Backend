@@ -9,7 +9,7 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'sku' => $faker->unique()->uuid,
-        'description' => $faker->paragraph(10),
+        'description' => $faker->paragraph(3),
         'price' => $faker->randomFloat(2, 100, 1000)
     ];
 });
