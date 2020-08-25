@@ -60,5 +60,5 @@ DELETE     api/products/{product_id} <br>
 GET|HEAD   api/product_cars <br>
 POST       api/product_cars <br>
 GET|HEAD   api/product_cars/{product_car_id} <br>
-PUT|PATCH  api/product_cars/{product_car_id} <br> // sending 0 as quantity in the request result in a delete from the database
+PUT|PATCH  api/product_cars/{product_car_id} // sending 0 as quantity in the request result in a delete from the database <br> 
 DELETE     api/product_cars/{product_car_id} <br>
