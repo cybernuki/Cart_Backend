@@ -9,8 +9,8 @@ POST http://localhost:3000/api/products/
 Content-Type: application/json
 
 {
-    "name": "Bottle of water",
-    "description": "It's just a bottle of water",
+    "name": "Ely",
+    "description":"She's a beauty mother" ,
     "sku":"1234",
     "price":100
 }

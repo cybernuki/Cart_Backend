@@ -36,7 +36,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         try {
-            return response(new CartResource(Cart::create()), 201);
+            return response(new CartResource(Cart::create(['status' => 'pending'])), 201);
         } catch (QueryException $exception) {
             return response()->json([
                 'status_code' => 500,

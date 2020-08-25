@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use App\ProductCar;
-use App\Http\Resources\ProductCartResource;
+use App\Http\Resources\ProductCarResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CartResource extends JsonResource
@@ -19,7 +19,8 @@ class CartResource extends JsonResource
         return [
             'id' => $this->id,
             'status' => $this->status,
-            'cartItems' => $this->product_cars
+            'cartItems' => ProductCarResource::collection($this->product_cars),
+            'cartId' => $this->cart_id
         ];
     }
 }

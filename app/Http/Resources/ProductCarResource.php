@@ -19,8 +19,7 @@ class ProductCarResource extends JsonResource
         return [
             "id" => $this->id,
             "quantity" => $this->quantity,
-            "product" => new ProductResource($this->product),
-            "cart" => new CartResource($this->cart)
+            "product" => new ProductResource($this->product)
         ];
     }
 }

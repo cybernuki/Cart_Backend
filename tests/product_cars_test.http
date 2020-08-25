@@ -11,7 +11,7 @@ Content-Type: application/json
 {
     "quantity": 20,
     "product_id": 2,
-    "cart_id": 4
+    "cart_id": 9
 }
 
 ### PUT REQUEST TO AUTHORS
