@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Observers\Api\UuidObserver;
+use App\Model\Client;
 use App\Model\Product;
+use App\Observers\Api\ClientObserver;
+use App\Observers\Api\UuidObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,5 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Product::observe(UuidObserver::class);
+        Client::observe(UuidObserver::class);
+
+        Client::observe(ClientObserver::class);
     }
 }
