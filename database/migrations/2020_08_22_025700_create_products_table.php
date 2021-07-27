@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -8,8 +9,6 @@ class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -17,17 +16,18 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name')->nullable(false);
             $table->string('sku')->unique()->nullable(false);
-            $table->longText('description');
+            $table->longText('description')->nullable(false);
             $table->float('price');
-            $table->string('imageUrl')->default('https://robertoespinosa.es/wp-content/uploads/2019/10/placeholder.png');
+            $table->string('image_url')->nullable(false);
+            $table->enum('status', Product::getStatus())->nullable(false)->default(Product::STATUS_DISABLED);
+            $table->uuid('uuid')->nullable(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
