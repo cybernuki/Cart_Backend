@@ -30,10 +30,6 @@ Into the file tests/ you can find some request examples
 
 # Data Types:
 
-## Cart:
-
-status: enum('pending','completed')
-
 ## Product:
 
 name: string<br>
