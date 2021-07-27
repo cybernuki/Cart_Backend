@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Product\StoreRequest;
 use App\Http\Requests\Api\V1\Product\UpdateRequest;
-use App\Http\Resources\ProductResource;
+use App\Http\Resources\Api\V1\Product\ProductResource;
 use App\Model\Product;
 
 class ProductController extends Controller
