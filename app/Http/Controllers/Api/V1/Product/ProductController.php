@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Product\StoreRequest;
 use App\Http\Requests\Api\V1\Product\UpdateRequest;
 use App\Http\Resources\ProductResource;
-use App\Product;
+use App\Model\Product;
 
 class ProductController extends Controller
 {

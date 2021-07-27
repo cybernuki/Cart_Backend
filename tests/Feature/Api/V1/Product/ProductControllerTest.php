@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Api\V1\Product;
 
-use App\Product;
+use App\Model\Product;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Observers\Api\UuidObserver;
-use App\Product;
+use App\Model\Product;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
