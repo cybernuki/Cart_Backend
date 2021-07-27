@@ -20,7 +20,7 @@ class Client extends Model
         'status',
     ];
 
-    protected $atribute = [
+    protected $attributes = [
         'status' => self::STATUS_PENDING,
     ];
 

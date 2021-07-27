@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('Product')->name('products.')->group(function () {
-    Route::apiResources([
-        'products' => 'ProductController',
-    ]);
+    Route::apiResource('products', 'ProductController');
+});
+
+Route::namespace('Client')->name('clients.')->group(function () {
+    Route::apiResource('clients', 'ClientController');
 });

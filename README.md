@@ -40,7 +40,7 @@ name: string<br>
 sku: string<br>
 description: string<br>
 price: float<br>
-imageUrl: string<br>
+image_url: string<br>
 
 ## ProductCar:
 
@@ -49,6 +49,14 @@ product_id: integer<br>
 cart_id: integer<br>
 
 # Routes:
+
+## Clients Routes:
+
+GET|HEAD api/v1/clients <br>
+POST api/v1/clients <br>
+GET|HEAD api/v1/clients{client_id} <br>
+PUT|PATCH api/v1/clients{client_id} <br>
+DELETE api/v1/clients/{client_id} <br>
 
 ## Carts Routes:
 
@@ -60,16 +68,16 @@ DELETE api/carts/{cart_id} <br>
 
 ## Products Routes:
 
-GET|HEAD api/products <br>
-POST api/products <br>
-GET|HEAD api/products/{product_id} <br>
-PUT|PATCH api/products/{product_id} <br>
-DELETE api/products/{product_id} <br>
+GET|HEAD api/v1/products <br>
+POST api/v1/products <br>
+GET|HEAD api/v1/products/{product_id} <br>
+PUT|PATCH api/v1/products/{product_id} <br>
+DELETE api/v1/products/{product_id} <br>
 
 ## ProductCars Routes:
 
-GET|HEAD api/product_cars <br>
-POST api/product_cars <br>
-GET|HEAD api/product_cars/{product_car_id} <br>
-PUT|PATCH api/product_cars/{product_car_id} // sending 0 as quantity in the request result in a delete from the database <br>
+GET|HEAD api/v1/product_cars <br>
+POST api/v1/product_cars <br>
+GET|HEAD api/v1/product_cars/{product_car_id} <br>
+PUT|PATCH api/v1/product_cars/{product_car_id} // sending 0 as quantity in the request result in a delete from the database <br>
 DELETE api/product_cars/{product_car_id} <br>
