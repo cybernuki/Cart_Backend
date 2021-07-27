@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResources([
-    'products' => 'ProductController',
-]);
+Route::namespace('Product')->name('products.')->group(function () {
+    Route::apiResources([
+        'products' => 'ProductController',
+    ]);
+});
